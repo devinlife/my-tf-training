@@ -5,7 +5,7 @@
 import tensorflow as tf
 from tensorflow import keras
 
-interpreter = tf.lite.Interpreter(model_path="tflite-mymodel.tflite")
+interpreter = tf.lite.Interpreter(model_path="./saved_model/my_model.tflite")
 
 for item in interpreter.get_tensor_details():
     for key in item.keys():
