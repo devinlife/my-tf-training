@@ -33,6 +33,10 @@ tensorflow/contrib/cmake/_build/
 *.iml
 local.properties
 gradleBuild
+build
+captures
+.externalNativeBuild
+.cxx
 
 # iOS
 *.pbxproj
@@ -47,3 +51,4 @@ gradleBuild
 Podfile.lock
 Pods
 xcuserdata
+
