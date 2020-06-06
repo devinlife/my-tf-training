@@ -30,8 +30,9 @@ model.summary()
 
 print("prediction test")
 test_input = [1,2,3,4,5]
-print(test_input)
-print(model.predict(test_input))
+print("input : ", test_input)
+test_output = model.predict(test_input)
+print("output: ", test_output.tolist())
 
 #1. save model as tensorflow saved_model
 model.save('saved_model/my_model')
