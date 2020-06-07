@@ -24,6 +24,10 @@ public class MainActivity extends AppCompatActivity {
     /** An instance of the driver class to run model inference with Tensorflow Lite. */
     protected Interpreter tflite;
 
+    protected Boolean useNnApi = false;
+
+    protected int numThreads = 1;
+
     /** Optional NNAPI delegate for accleration. */
     private NnApiDelegate nnApiDelegate = null;
 
@@ -38,8 +42,12 @@ public class MainActivity extends AppCompatActivity {
         //Activity activity = (Activity) getApplicationContext();
         Activity activity = MainActivity.this;
 
-        nnApiDelegate = new NnApiDelegate();
-        tfliteOptions.addDelegate(nnApiDelegate);
+        if(useNnApi) {
+            nnApiDelegate = new NnApiDelegate();
+            tfliteOptions.addDelegate(nnApiDelegate);
+        }
+
+        tfliteOptions.setNumThreads(numThreads);
 
         try {
             tfliteModel = FileUtil.loadMappedFile(activity, "my_model.tflite");
