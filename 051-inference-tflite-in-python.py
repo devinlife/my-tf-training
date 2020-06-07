@@ -20,7 +20,7 @@ input_shape = input_details[0]['shape']
 input_data = np.array(np.random.randint(0,1000, size=input_shape), dtype=np.float32)
 
 #input_data = np.array([[1]], dtype=np.float32)
-print(input_data)
+print("input : %s" % input_data)
 
 interpreter.set_tensor(input_details[0]['index'], input_data)
 
@@ -29,4 +29,4 @@ interpreter.invoke()
 # The function `get_tensor()` returns a copy of the tensor data.
 # Use `tensor()` in order to get a pointer to the tensor.
 output_data = interpreter.get_tensor(output_details[0]['index'])
-print(output_data)
+print("output : %s" % output_data)
